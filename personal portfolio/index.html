@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+         <nav>
+             <img src="" class="logo">
+             <ul id="sidemenu">
+             <li><a href="#header">Home</a></li>
+              <li><a href="#about">About</a></li>
+             <li><a href="#contact">Contact</a></li>
+
+            </ul>
+        </nav>
+        <div class="header-text">
+       <p>Web Developer and<span> Android App developer </span><br></p>
+            <h1>Hi,I'M<span> Abdul kalam</span><br> From India</h1>
+        </div>
+        </div>
+    </div>
+
+    <div id="about">
+        <div class="container">
+             <div class="row">
+                <div class="about-col-1">
+                    <img src="images/my image (3).jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1><br>
+                    <p>Energetic and motivated Computer Science and Engineering (CSE) enthusiast
+                        with a solid foundation in core concepts. Seeking a CSE internship to apply
+                        theory in practice, enhance problem-solving skills, and collaborate on
+                        innovative projects. Committed to continuous improvement and eager to
+                        contribute to a dynamic team of experienced professionals..</p><br>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('Experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('Education')">Education</p>
+                       
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                         <ul>
+                             <li><span>HTML</span><br></li>Web Development
+                             <li><span>CSS</span></li>Web Development
+                             <li><span>Javascript</span></li>Web Development
+                
+                            <li><span>Java</span></li>Android app Development
+                            <li><span>XML for android apps</span></li> Android app Development
+                         </ul>
+                    </div>
+                    <div class="tab-contents" id="Experience">
+                        <ul>
+                            <li><span>CyberDosti: </span><br></li> Web Intern
+                            <li><span>CodSoft: </span></li> App Intern
+                          
+                        </ul>
+                   </div>
+                   <div class="tab-contents" id="Education">
+                    <ul>
+                        <li><span> 2020-2024 </span><br><span ></span></li>Bachelor of computer science and engineering in MIET<br>
+                        <li><span>2018-2020</span></li>Higher studies in ramsuns matric hr sec school<br>
+      
+                    </ul>
+               </div>
+            </div>
+         </div>
+     </div>
+     
+
+   <!----------------contact----------------------------------------->
+   <div id="contact">
+     <div class="container">
+         <div class="row">
+              <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1><br><br>
+                <p >EMAIL:<span class="colro"> theabdulkalam@gmail.com</span></p><br><br>
+                <p >PH:<span class="colro"> 6381250856</p>
+                <br>
+                <div class="social-icons">
+                   
+                </div>
+             
+              </div>
+              <div class="contact-right"></div>
+              <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your email" required>
+                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                <button type="submit">Submit</button>
+              </form>
+        </div>
+    </div>
+   </div>
+
+         
+  </div>
+    <script>
+        var tablinks =document.getElementsByClassName("tab-links");
+        
+        var tabcontents =document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+
+
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab")
+       
+    }
+  
+  
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxkvMf110C0i3B7iBflky736IIv7o7eXDSedq6UuVU18l85YeAfbuNL2l-QlBqO-2dE/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+
+</script>
+</body>
+</html>
